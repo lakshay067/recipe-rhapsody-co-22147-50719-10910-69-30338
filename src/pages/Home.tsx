@@ -73,23 +73,23 @@ export const Home = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background pb-20">
+    <div className="min-h-screen bg-background pb-20 sm:pb-24">
       <Header title="Meal Planner" />
       
-      <main className="px-4 py-6 max-w-4xl mx-auto">
+      <main className="px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6 md:py-8 max-w-7xl mx-auto">
         {/* Hero Banner */}
-        <div className="relative rounded-3xl overflow-hidden mb-8 h-48 animate-fade-in shadow-lg">
+        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden mb-6 sm:mb-8 h-40 sm:h-48 md:h-56 lg:h-64 animate-fade-in shadow-lg">
           <img 
             src={heroImage} 
             alt="Fresh vegetables" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
-            <div className="p-6">
-              <h1 className="text-3xl font-heading font-bold text-white mb-2">
+            <div className="p-4 sm:p-6 md:p-8">
+              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-white mb-1 sm:mb-2">
                 Plan Your Week
               </h1>
-              <p className="text-white/90 text-sm">
+              <p className="text-white/90 text-xs sm:text-sm md:text-base">
                 {isGuest ? 'Guest Mode' : 'Welcome back!'}
               </p>
             </div>
@@ -97,13 +97,14 @@ export const Home = () => {
         </div>
 
         {/* Week Selector */}
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-heading font-bold text-foreground">This Week</h2>
+        <div className="flex items-center justify-between mb-4 sm:mb-6">
+          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-heading font-bold text-foreground">This Week</h2>
           <Dialog open={changeWeekOpen} onOpenChange={setChangeWeekOpen}>
             <DialogTrigger asChild>
-              <Button variant="ghost" size="sm" className="gap-2">
-                <Calendar className="w-4 h-4" />
+              <Button variant="ghost" size="sm" className="gap-1 sm:gap-2 text-xs sm:text-sm">
+                <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
                 <span className="hidden sm:inline">Change Week</span>
+                <span className="sm:hidden">Week</span>
               </Button>
             </DialogTrigger>
             <DialogContent>
@@ -126,61 +127,61 @@ export const Home = () => {
         </div>
 
         {/* Days Tabs */}
-        <div className="grid grid-cols-7 gap-2 mb-8">
+        <div className="grid grid-cols-7 gap-1 sm:gap-2 md:gap-3 mb-6 sm:mb-8">
           {weekDaysShort.map((day, idx) => (
             <button
               key={day}
               onClick={() => setSelectedDay(idx)}
-              className={`flex flex-col items-center justify-center p-3 rounded-2xl transition-all duration-200 ${
+              className={`flex flex-col items-center justify-center p-2 sm:p-3 md:p-4 rounded-xl sm:rounded-2xl transition-all duration-200 touch-manipulation ${
                 idx === selectedDay 
                   ? 'bg-primary text-primary-foreground shadow-lg scale-105' 
-                  : 'bg-secondary text-secondary-foreground hover:bg-secondary-hover'
+                  : 'bg-secondary text-secondary-foreground hover:bg-secondary-hover active:scale-95'
               }`}
             >
-              <span className="text-xs font-semibold mb-1">{day}</span>
-              <span className="text-lg font-bold">{weekStart + idx}</span>
+              <span className="text-[10px] sm:text-xs md:text-sm font-semibold mb-0.5 sm:mb-1">{day}</span>
+              <span className="text-sm sm:text-base md:text-lg lg:text-xl font-bold">{weekStart + idx}</span>
             </button>
           ))}
         </div>
 
         {/* Day Cards */}
-        <div className="space-y-6">
+        <div className="space-y-4 sm:space-y-6 lg:grid lg:grid-cols-2 lg:gap-6 lg:space-y-0">
           {weekDays.map((day, dayIdx) => {
             const dayMeals = getMealsForDay(day);
             
             return (
-              <Card key={day} className="p-6 rounded-3xl shadow-lg animate-fade-up border-border/50">
+              <Card key={day} className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl shadow-lg animate-fade-up border-border/50 hover:shadow-xl transition-shadow">
                 {/* Day Label */}
-                <div className="bg-primary text-primary-foreground rounded-2xl px-6 py-2 inline-block mb-6 font-bold text-sm">
+                <div className="bg-primary text-primary-foreground rounded-xl sm:rounded-2xl px-4 sm:px-6 py-1.5 sm:py-2 inline-block mb-4 sm:mb-6 font-bold text-xs sm:text-sm">
                   {day}
                 </div>
 
                 {/* Meal Sections */}
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4">
                   {mealTimes.map((mealTime, idx) => {
                     const meal = dayMeals.find(m => m.time === mealTime);
                     
                     return (
                       <div key={mealTime}>
-                        <div className="flex items-center justify-between py-3">
-                          <div className="flex-1">
-                            <h3 className="text-sm font-semibold text-foreground mb-1">
+                        <div className="flex items-center justify-between py-2 sm:py-3">
+                          <div className="flex-1 min-w-0">
+                            <h3 className="text-xs sm:text-sm md:text-base font-semibold text-foreground mb-1">
                               {mealTime}
                             </h3>
                             {meal ? (
-                              <p className="text-foreground/80">{meal.name}</p>
+                              <p className="text-sm sm:text-base text-foreground/80 truncate">{meal.name}</p>
                             ) : (
                               <Button 
                                 variant="ghost" 
                                 size="sm" 
-                                className="gap-2 text-muted-foreground hover:text-primary"
+                                className="gap-1 sm:gap-2 text-xs sm:text-sm text-muted-foreground hover:text-primary p-0 h-auto hover:bg-transparent"
                                 onClick={() => {
                                   setSelectedMealDay(day);
                                   setSelectedMealTime(mealTime);
                                   setAddMealOpen(true);
                                 }}
                               >
-                                <Plus className="w-4 h-4 text-primary" />
+                                <Plus className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
                                 Add meal
                               </Button>
                             )}

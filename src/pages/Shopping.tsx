@@ -96,10 +96,10 @@ export const Shopping = () => {
   );
 
   return (
-    <div className="min-h-screen bg-background pb-20 sm:pb-20">
+    <div className="min-h-screen bg-background pb-20 sm:pb-24">
       <Header title="Shopping List" />
       
-      <main className="px-3 sm:px-4 py-4 sm:py-6 max-w-2xl mx-auto">
+      <main className="px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6 md:py-8 max-w-4xl mx-auto">
         {isAuthenticated ? (
           <Tabs defaultValue="recent" className="w-full">
             <TabsList className="grid w-full grid-cols-3 mb-6">

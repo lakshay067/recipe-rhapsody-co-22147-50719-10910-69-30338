@@ -9,39 +9,39 @@ export const RecipeDetail = () => {
   const { id } = useParams();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pb-6">
       <Header title="Recipe Details" showNotifications={false} />
       
-      <main className="pb-6">
+      <main>
         {/* Hero Image */}
-        <div className="relative h-64 bg-muted mb-6">
-          <div className="absolute inset-0 flex items-center justify-center text-6xl">
+        <div className="relative h-48 sm:h-56 md:h-64 lg:h-80 bg-muted mb-4 sm:mb-6">
+          <div className="absolute inset-0 flex items-center justify-center text-4xl sm:text-5xl md:text-6xl">
             🥗
           </div>
           <Button
             onClick={() => navigate(-1)}
             variant="ghost"
             size="icon"
-            className="absolute top-4 left-4 bg-background/80 backdrop-blur-sm"
+            className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-background/80 backdrop-blur-sm h-9 w-9 sm:h-10 sm:w-10"
           >
-            <ArrowLeft className="w-5 h-5" />
+            <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
           </Button>
-          <div className="absolute bottom-4 right-4 flex gap-2">
-            <Button variant="ghost" size="icon" className="bg-background/80 backdrop-blur-sm">
-              <Heart className="w-5 h-5" />
+          <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 flex gap-2">
+            <Button variant="ghost" size="icon" className="bg-background/80 backdrop-blur-sm h-9 w-9 sm:h-10 sm:w-10">
+              <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
             </Button>
-            <Button variant="ghost" size="icon" className="bg-background/80 backdrop-blur-sm">
-              <Share className="w-5 h-5" />
+            <Button variant="ghost" size="icon" className="bg-background/80 backdrop-blur-sm h-9 w-9 sm:h-10 sm:w-10">
+              <Share className="w-4 h-4 sm:w-5 sm:h-5" />
             </Button>
           </div>
         </div>
 
-        <div className="px-4 max-w-2xl mx-auto">
-          <h1 className="text-3xl font-heading font-bold mb-4">
+        <div className="px-3 sm:px-4 md:px-6 lg:px-8 max-w-4xl mx-auto">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-heading font-bold mb-3 sm:mb-4">
             Grilled Chicken Salad
           </h1>
 
-          <div className="flex gap-6 mb-6">
+          <div className="flex gap-4 sm:gap-6 mb-4 sm:mb-6">
             <div className="flex items-center gap-2 text-muted-foreground">
               <Clock className="w-5 h-5" />
               <span>25 min</span>

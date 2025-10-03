@@ -13,10 +13,10 @@ export const Profile = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background pb-20">
+    <div className="min-h-screen bg-background pb-20 sm:pb-24">
       <Header title="Profile" showProfile={false} />
       
-      <main className="px-4 py-6 max-w-2xl mx-auto">
+      <main className="px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6 md:py-8 max-w-4xl mx-auto">
         {/* Profile Picture */}
         <div className="flex justify-center mb-8">
           <div className="relative">

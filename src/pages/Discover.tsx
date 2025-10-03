@@ -52,43 +52,43 @@ export const Discover = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background pb-20 sm:pb-20">
+    <div className="min-h-screen bg-background pb-20 sm:pb-24">
       <Header title="Discover" />
       
-      <main className="px-3 sm:px-4 py-4 sm:py-6 max-w-2xl mx-auto">
+      <main className="px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6 md:py-8 max-w-7xl mx-auto">
         {/* Search Bar */}
-        <div className="relative mb-6 animate-fade-in">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+        <div className="relative mb-4 sm:mb-6 animate-fade-in">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground pointer-events-none" />
           <Input
             placeholder="Search recipes..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-10 h-12"
+            className="pl-9 sm:pl-10 h-10 sm:h-12 text-sm sm:text-base"
           />
         </div>
 
         {/* Recipes Grid */}
         <div className="mb-6">
-          <h3 className="text-lg font-heading font-semibold mb-4">
+          <h3 className="text-base sm:text-lg md:text-xl font-heading font-semibold mb-3 sm:mb-4">
             All Recipes ({filteredRecipes.length})
           </h3>
-          <div className="grid gap-4">
+          <div className="grid gap-3 sm:gap-4 md:grid-cols-2 lg:grid-cols-3">
             {filteredRecipes.map((recipe, idx) => {
               const isSaved = isRecipeSaved(recipe.id);
               return (
                 <Card 
                   key={recipe.id}
-                  className="p-4 hover:shadow-lg transition-shadow animate-fade-up" 
-                  style={{ animationDelay: `${idx * 0.1}s` }}
+                  className="p-3 sm:p-4 hover:shadow-lg transition-all hover:-translate-y-1 animate-fade-up" 
+                  style={{ animationDelay: `${idx * 0.05}s` }}
                 >
                   <Link to={`/recipe/${recipe.id}`} className="block">
-                    <div className="flex gap-4">
-                      <div className="w-20 h-20 bg-muted rounded-2xl flex items-center justify-center text-4xl">
+                    <div className="flex gap-3 sm:gap-4">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-muted rounded-xl sm:rounded-2xl flex items-center justify-center text-3xl sm:text-4xl shrink-0">
                         {recipe.image}
                       </div>
-                      <div className="flex-1">
-                        <h4 className="font-semibold text-foreground mb-2">{recipe.name}</h4>
-                        <div className="flex gap-4 text-xs text-muted-foreground">
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-semibold text-sm sm:text-base text-foreground mb-1 sm:mb-2 line-clamp-2">{recipe.name}</h4>
+                        <div className="flex flex-col sm:flex-row gap-1 sm:gap-4 text-xs text-muted-foreground">
                           <span className="flex items-center gap-1">
                             <Clock className="w-3 h-3" />
                             {recipe.time}
@@ -102,13 +102,13 @@ export const Discover = () => {
                       <Button
                         variant={isSaved ? "default" : "outline"}
                         size="icon"
-                        className="shrink-0"
+                        className="shrink-0 h-8 w-8 sm:h-9 sm:w-9"
                         onClick={(e) => handleSaveToggle(recipe, e)}
                       >
                         {isSaved ? (
-                          <BookmarkCheck className="w-4 h-4" />
+                          <BookmarkCheck className="w-3 h-3 sm:w-4 sm:h-4" />
                         ) : (
-                          <Bookmark className="w-4 h-4" />
+                          <Bookmark className="w-3 h-3 sm:w-4 sm:h-4" />
                         )}
                       </Button>
                     </div>

@@ -50,10 +50,10 @@ export const RecipeBuilder = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background pb-6">
+    <div className="min-h-screen bg-background pb-6 sm:pb-8">
       <Header title="Create Recipe" showNotifications={false} showProfile={false} />
       
-      <main className="px-4 py-6 max-w-2xl mx-auto">
+      <main className="px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6 md:py-8 max-w-4xl mx-auto">
         <Card className="p-6 mb-6">
           <div className="space-y-6">
             <div>

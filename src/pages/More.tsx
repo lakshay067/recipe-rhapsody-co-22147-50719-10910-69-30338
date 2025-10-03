@@ -33,10 +33,10 @@ export const More = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background pb-20 sm:pb-20">
+    <div className="min-h-screen bg-background pb-20 sm:pb-24">
       <Header title="More" showNotifications={false} showProfile={false} />
       
-      <main className="px-3 sm:px-4 py-4 sm:py-6 max-w-2xl mx-auto">
+      <main className="px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6 md:py-8 max-w-4xl mx-auto">
         {/* User Card */}
         <Card className="p-6 mb-6 glass-panel animate-fade-in">
           <div className="flex items-center gap-4">
