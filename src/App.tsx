@@ -68,7 +68,7 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider 
       attribute="class" 
-      defaultTheme="light" 
+      defaultTheme="dark" 
       storageKey="meal-planner-theme"
       enableSystem={false}
       themes={[

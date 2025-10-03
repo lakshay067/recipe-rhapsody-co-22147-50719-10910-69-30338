@@ -49,37 +49,37 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 0 0% 12%;  /* Dark charcoal */
-    --foreground: 0 0% 98%;
+    --background: 0 0% 8%;  /* Deep black/charcoal */
+    --foreground: 0 0% 100%;  /* Pure white */
 
-    --card: 0 0% 15%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 16%;  /* Dark grey for cards */
+    --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 15%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 16%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 146 49% 49%;
-    --primary-foreground: 0 0% 100%;
-    --primary-hover: 146 51% 40%;
+    --primary: 142 70% 50%;  /* Bright green */
+    --primary-foreground: 0 0% 0%;  /* Black text on green */
+    --primary-hover: 142 70% 42%;
 
-    --secondary: 22 100% 63%;
+    --secondary: 0 0% 25%;  /* Dark grey for inactive states */
     --secondary-foreground: 0 0% 100%;
-    --secondary-hover: 14 100% 63%;
+    --secondary-hover: 0 0% 30%;
 
     --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 65%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 22 100% 63%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 142 70% 50%;
+    --accent-foreground: 0 0% 0%;
 
     --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 25%;
-    --input: 0 0% 25%;
-    --ring: 146 49% 49%;
+    --border: 0 0% 28%;
+    --input: 0 0% 20%;
+    --ring: 142 70% 50%;
 
-    --glass-bg: 0 0% 15% / 0.7;
+    --glass-bg: 0 0% 16% / 0.7;
     --glass-border: 0 0% 100% / 0.1;
   }
 
